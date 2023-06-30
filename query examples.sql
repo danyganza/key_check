@@ -28,8 +28,10 @@ CREATE TABLE `movie` (
   `runtime` time DEFAULT NULL,
   `director` varchar(50) DEFAULT NULL,
   `release_year` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `movie_UN` (`tittle`,`director`,`release_year`),
+  CONSTRAINT `runtime_CHECK` CHECK (`runtime` >= 30.0)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,12 +41,9 @@ CREATE TABLE `movie` (
 LOCK TABLES `movie` WRITE;
 /*!40000 ALTER TABLE `movie` DISABLE KEYS */;
 INSERT INTO `movie` VALUES
-(1,'The Shawshank Redemption','02:22:00','Frank Darabont',1994),
-(2,'Inception','02:28:00','Christopher Nolan',2010),
-(3,'Pulp Fiction','02:34:00','Quentin Tarantino',1994),
-(4,'The Shawshank Redemption','02:22:00','Frank Darabont',1994),
-(5,'Inception','02:28:00','Christopher Nolan',2010),
-(6,'Pulp Fiction','02:34:00','Quentin Tarantino',1994);
+(44,'The Shawshank Redemption','02:22:00','Frank Darabont',1994),
+(45,'Inception','02:28:00','Christopher Nolan',2010),
+(46,'Pulp Fiction','02:34:00','Quentin Tarantino',1995);
 /*!40000 ALTER TABLE `movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-29 17:39:26
+-- Dump completed on 2023-06-29 19:29:58
